@@ -1,4 +1,4 @@
-import { equalCondition } from "../conditions/equal";
+import { equalCondition } from "../conditions/equal/equal";
 import { FeatureFlag, FlagNames, User } from "../types/types";
 
 export const isEnabled = <
