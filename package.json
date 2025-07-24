@@ -1,0 +1,14 @@
+{
+  "name": "toggle-kit",
+  "version": "1.0.0",
+  "description": "A feature flag library which runs fully on the service itself, without any dependencies.",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.1.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}
