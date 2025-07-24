@@ -2,12 +2,18 @@
   "name": "toggle-kit",
   "version": "1.0.0",
   "description": "A feature flag library which runs fully on the service itself, without any dependencies.",
-  "scripts": {},
+  "scripts": {
+    "test": "jest"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "@types/node": "^24.1.0",
+    "jest": "^30.0.5",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3"
   }
