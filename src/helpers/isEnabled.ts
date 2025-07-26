@@ -1,16 +1,18 @@
 import { equalCondition } from "../conditions/equal/equal";
-import { FeatureFlag, FlagNames, User } from "../types/types";
+import { FeatureFlag } from "../types/FeatureFlag";
+import { FlagNames } from "../types/FlagNames";
+import { User } from "../types/User";
 
 export const isEnabled = <
   const TUser extends User,
-  const TFlags extends readonly FeatureFlag<keyof TUser & string>[]
+  const TFlags extends readonly FeatureFlag<TUser>[]
 >({
   featureName,
   flags,
   user,
 }: {
   featureName: FlagNames<TFlags>;
-  flags: Map<string, FeatureFlag<keyof TUser & string>>;
+  flags: Map<string, FeatureFlag<TUser>>;
   user: TUser;
 }): boolean => {
   const flag = flags.get(featureName);
