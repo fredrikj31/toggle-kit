@@ -1,3 +1,4 @@
+import { containsCondition } from "../conditions/contains/contains";
 import { equalCondition } from "../conditions/equal/equal";
 import { FeatureFlag } from "../types/FeatureFlag";
 import { FlagNames } from "../types/FlagNames";
@@ -22,7 +23,7 @@ export const isEnabled = <
     return false;
   }
 
-  const { attribute, value, type } = flag.condition;
+  const { attribute, value, type: conditionType } = flag.condition;
 
   if (!(attribute in user)) {
     return false;
@@ -30,10 +31,13 @@ export const isEnabled = <
 
   const userValue = user[attribute];
 
-  switch (type) {
+  switch (conditionType) {
     case "equal":
       return equalCondition({ userValue, value });
+    case "contains":
+      return containsCondition({ userValue, value });
     default:
+      conditionType satisfies never;
       return false;
   }
 };
