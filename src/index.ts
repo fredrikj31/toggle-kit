@@ -1,19 +1,22 @@
 import { isEnabled } from "./helpers/isEnabled";
-import { FeatureFlag, FlagNames, User } from "./types/types";
+import { FeatureFlag } from "./types/FeatureFlag";
+import { FlagNames } from "./types/FlagNames";
+import { User } from "./types/User";
 
 class FeatureFlagClient<
   const TUser extends User,
-  const TFlags extends readonly FeatureFlag<keyof TUser & string>[]
+  const TFlags extends readonly FeatureFlag<TUser>[]
 > {
-  private flags: Map<string, FeatureFlag<keyof TUser & string>>;
+  private flags: Map<string, FeatureFlag<TUser>>;
   private user: TUser;
 
   constructor(user: TUser, initialFlags: TFlags) {
     this.user = user;
     this.flags = new Map(
-      (initialFlags as unknown as FeatureFlag<keyof TUser & string>[]).map(
-        (flag) => [flag.name, flag]
-      )
+      (initialFlags as unknown as FeatureFlag<TUser>[]).map((flag) => [
+        flag.name,
+        flag,
+      ])
     );
   }
 
@@ -27,7 +30,7 @@ class FeatureFlagClient<
 
 export function createFeatureFlagClient<
   const TUser extends User,
-  const TFlags extends readonly FeatureFlag<keyof TUser & string>[]
+  const TFlags extends readonly FeatureFlag<TUser>[]
 >({ user, flags }: { user: TUser; flags: TFlags }) {
   return new FeatureFlagClient(user, flags);
 }
