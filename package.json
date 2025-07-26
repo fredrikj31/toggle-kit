@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A feature flag library which runs fully on the service itself, without any dependencies.",
   "scripts": {
+    "build": "tsc",
     "test": "jest"
   },
   "keywords": [],
