@@ -2,13 +2,29 @@
   "name": "toggle-kit",
   "version": "1.0.0",
   "description": "A feature flag library which runs fully on the service itself, without any dependencies.",
+  "main": "index.js",
+  "files": [
+    "build"
+  ],
   "scripts": {
     "build": "tsc",
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fredrikj31/toggle-kit.git"
+  },
+  "keywords": [
+    "feature flagging",
+    "feature flags",
+    "flags"
+  ],
+  "author": "Fredrik Johansen <fredrik1206@gmail.com> (https://fredrikjohansen.dev)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fredrikj31/toggle-kit/issues"
+  },
+  "homepage": "https://github.com/fredrikj31/toggle-kit",
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@types/node": "^24.1.0",
