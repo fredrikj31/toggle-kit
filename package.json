@@ -2,9 +2,9 @@
   "name": "toggle-kit",
   "version": "1.0.1",
   "description": "A feature flag library which runs fully on the service itself, without any dependencies.",
-  "main": "index.js",
+  "main": "./build/index.js",
   "files": [
-    "build"
+    "build/**/*"
   ],
   "scripts": {
     "build": "tsc",
