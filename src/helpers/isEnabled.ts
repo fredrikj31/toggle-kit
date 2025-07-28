@@ -6,7 +6,7 @@ import { User } from "../types/User";
 
 export const isEnabled = <
   const TUser extends User,
-  const TFlags extends readonly FeatureFlag<TUser>[]
+  const TFlags extends readonly FeatureFlag<TUser>[],
 >({
   featureName,
   flags,

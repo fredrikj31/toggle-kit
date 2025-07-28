@@ -8,8 +8,10 @@
   ],
   "scripts": {
     "build": "tsc",
+    "build:check": "tsc --noEmit",
     "test": "jest",
-    "build:check": "tsc --noEmit"
+    "format:write": "prettier --write ./src",
+    "format:check": "prettier --check ./src"
   },
   "repository": {
     "type": "git",
@@ -33,6 +35,7 @@
     "@types/jest": "^30.0.0",
     "@types/node": "^24.1.0",
     "jest": "^30.0.5",
+    "prettier": "^3.6.2",
     "semantic-release": "^24.2.7",
     "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",

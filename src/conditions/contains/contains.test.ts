@@ -7,7 +7,7 @@ describe("Condition - Contains", () => {
       containsCondition({
         userValue: "test-value",
         value: "test",
-      })
+      }),
     ).toBe(true);
   });
 
@@ -16,7 +16,7 @@ describe("Condition - Contains", () => {
       containsCondition({
         userValue: "test-value",
         value: "not",
-      })
+      }),
     ).toBe(false);
   });
 
