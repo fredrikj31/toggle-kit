@@ -8,8 +8,10 @@
   ],
   "scripts": {
     "build": "tsc",
+    "build:check": "tsc --noEmit",
     "test": "jest",
-    "build:check": "tsc --noEmit"
+    "format:write": "prettier --write ./src",
+    "format:check": "prettier --check ./src"
   },
   "repository": {
     "type": "git",
