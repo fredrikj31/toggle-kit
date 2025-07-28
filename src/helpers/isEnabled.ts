@@ -1,5 +1,6 @@
 import { containsCondition } from "../conditions/contains/contains";
 import { equalCondition } from "../conditions/equal/equal";
+import { startsWithCondition } from "../conditions/startsWith/startsWith";
 import { FeatureFlag } from "../types/FeatureFlag";
 import { FlagNames } from "../types/FlagNames";
 import { User } from "../types/User";
@@ -36,6 +37,8 @@ export const isEnabled = <
       return equalCondition({ userValue, value });
     case "contains":
       return containsCondition({ userValue, value });
+    case "startsWith":
+      return startsWithCondition({ userValue, value });
     default:
       conditionType satisfies never;
       return false;
