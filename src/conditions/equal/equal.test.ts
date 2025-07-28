@@ -6,7 +6,7 @@ describe("Condition - Equal", () => {
       equalCondition({
         userValue: "test-value",
         value: "test-value",
-      })
+      }),
     ).toBe(true);
   });
 
@@ -15,7 +15,7 @@ describe("Condition - Equal", () => {
       equalCondition({
         userValue: "not-test-value",
         value: "test-value",
-      })
+      }),
     ).toBe(false);
   });
 });
