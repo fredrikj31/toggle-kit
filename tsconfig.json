@@ -7,8 +7,8 @@
     "strict": true,
     "skipLibCheck": true,
     "rootDir": "src",
-    "outDir": "build"
+    "outDir": "lib"
   },
   "include": ["src"],
-  "exclude": ["node_modules", "build", "./src/**/*.test.ts"]
+  "exclude": ["node_modules", "lib", "./src/**/*.test.ts"]
 }
