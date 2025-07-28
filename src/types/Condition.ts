@@ -7,7 +7,7 @@ type KeysMatching<T, V> = {
 export type Condition<TUser extends User> =
   // String Attribute
   | {
-      type: "equal" | "contains" | "startsWith";
+      type: "equal" | "contains" | "startsWith" | "endsWith";
       attribute: KeysMatching<TUser, string>;
       value: string;
     }
