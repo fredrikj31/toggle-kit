@@ -22,4 +22,10 @@ export type Condition<TProperty extends Property> =
       type: "equal";
       attribute: KeysMatching<TProperty, boolean>;
       expectedValue: boolean;
+    }
+  // Regex Attribute
+  | {
+      type: "regex";
+      attribute: KeysMatching<TProperty, string>;
+      expectedValue: RegExp;
     };

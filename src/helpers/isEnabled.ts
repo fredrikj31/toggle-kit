@@ -4,6 +4,7 @@ import { equalCondition } from "../conditions/equal/equal";
 import { greaterThanCondition } from "../conditions/greaterThan/greaterThan";
 import { lessThanCondition } from "../conditions/lessThan/lessThan";
 import { percentageCondition } from "../conditions/percentage/percentage";
+import { regexCondition } from "../conditions/regex/regex";
 import { startsWithCondition } from "../conditions/startsWith/startsWith";
 import { FeatureFlag } from "../types/FeatureFlag";
 import { FlagNames } from "../types/FlagNames";
@@ -51,6 +52,8 @@ export const isEnabled = <
       return greaterThanCondition({ value, expectedValue });
     case "lessThan":
       return lessThanCondition({ value, expectedValue });
+    case "regex":
+      return regexCondition({ value, expectedValue });
     default:
       conditionType satisfies never;
       return false;
