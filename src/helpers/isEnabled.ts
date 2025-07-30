@@ -7,19 +7,19 @@ import { percentageCondition } from "../conditions/percentage/percentage";
 import { startsWithCondition } from "../conditions/startsWith/startsWith";
 import { FeatureFlag } from "../types/FeatureFlag";
 import { FlagNames } from "../types/FlagNames";
-import { User } from "../types/User";
+import { Property } from "../types/Property";
 
 export const isEnabled = <
-  const TUser extends User,
-  const TFlags extends readonly FeatureFlag<TUser>[],
+  const TProperty extends Property,
+  const TFlags extends readonly FeatureFlag<TProperty>[],
 >({
   featureName,
   flags,
-  user,
+  property,
 }: {
   featureName: FlagNames<TFlags>;
-  flags: Map<string, FeatureFlag<TUser>>;
-  user: TUser;
+  flags: Map<string, FeatureFlag<TProperty>>;
+  property: TProperty;
 }): boolean => {
   const flag = flags.get(featureName);
 
@@ -28,29 +28,29 @@ export const isEnabled = <
     return false;
   }
 
-  const { attribute, value, type: conditionType } = flag.condition;
+  const { attribute, expectedValue, type: conditionType } = flag.condition;
 
-  if (!(attribute in user)) {
+  if (!(attribute in property)) {
     return false;
   }
 
-  const userValue = user[attribute];
+  const value = property[attribute];
 
   switch (conditionType) {
     case "equal":
-      return equalCondition({ userValue, value });
+      return equalCondition({ value, expectedValue });
     case "contains":
-      return containsCondition({ userValue, value });
+      return containsCondition({ value, expectedValue });
     case "startsWith":
-      return startsWithCondition({ userValue, value });
+      return startsWithCondition({ value, expectedValue });
     case "endsWith":
-      return endsWithCondition({ userValue, value });
+      return endsWithCondition({ value, expectedValue });
     case "percentage":
-      return percentageCondition({ featureName, userValue, value });
+      return percentageCondition({ featureName, value, expectedValue });
     case "greaterThan":
-      return greaterThanCondition({ userValue, value });
+      return greaterThanCondition({ value, expectedValue });
     case "lessThan":
-      return lessThanCondition({ userValue, value });
+      return lessThanCondition({ value, expectedValue });
     default:
       conditionType satisfies never;
       return false;

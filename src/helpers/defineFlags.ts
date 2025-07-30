@@ -1,9 +1,9 @@
 import { FeatureFlag } from "../types/FeatureFlag";
-import { User } from "../types/User";
+import { Property } from "../types/Property";
 
 export function defineFlags<
-  const TUser extends User,
-  const TFlags extends readonly FeatureFlag<TUser>[],
->(_user: TUser, flags: TFlags) {
+  const TProperty extends Property,
+  const TFlags extends readonly FeatureFlag<TProperty>[],
+>(_property: TProperty, flags: TFlags) {
   return flags;
 }

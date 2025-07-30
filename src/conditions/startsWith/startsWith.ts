@@ -1,15 +1,15 @@
 export const startsWithCondition = ({
-  userValue,
   value,
+  expectedValue,
 }: {
-  userValue: string | number | boolean;
-  value: string;
+  value: string | number | boolean;
+  expectedValue: string;
 }): boolean => {
-  if (typeof userValue === "number" || typeof userValue === "boolean") {
+  if (typeof value === "number" || typeof value === "boolean") {
     return false;
   }
 
-  const regex = RegExp(`^${value}`, "gm");
+  const regex = RegExp(`^${expectedValue}`, "gm");
 
-  return regex.test(userValue);
+  return regex.test(value);
 };

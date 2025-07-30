@@ -1,25 +1,25 @@
-import { User } from "./User";
+import { Property } from "./Property";
 
 type KeysMatching<T, V> = {
   [K in keyof T]-?: T[K] extends V ? K : never;
 }[keyof T];
 
-export type Condition<TUser extends User> =
+export type Condition<TProperty extends Property> =
   // String Attribute
   | {
       type: "equal" | "contains" | "startsWith" | "endsWith";
-      attribute: KeysMatching<TUser, string>;
-      value: string;
+      attribute: KeysMatching<TProperty, string>;
+      expectedValue: string;
     }
   // Number Attribute
   | {
       type: "equal" | "percentage" | "greaterThan" | "lessThan";
-      attribute: KeysMatching<TUser, number>;
-      value: number;
+      attribute: KeysMatching<TProperty, number>;
+      expectedValue: number;
     }
   // Boolean Attribute
   | {
       type: "equal";
-      attribute: KeysMatching<TUser, boolean>;
-      value: boolean;
+      attribute: KeysMatching<TProperty, boolean>;
+      expectedValue: boolean;
     };

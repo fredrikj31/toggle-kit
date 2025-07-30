@@ -1,13 +1,13 @@
 export const lessThanCondition = ({
-  userValue,
   value,
+  expectedValue,
 }: {
-  userValue: string | number | boolean;
-  value: number;
+  value: string | number | boolean;
+  expectedValue: number;
 }): boolean => {
-  if (typeof userValue === "string" || typeof userValue === "boolean") {
+  if (typeof value === "string" || typeof value === "boolean") {
     return false;
   }
 
-  return userValue < value;
+  return value < expectedValue;
 };

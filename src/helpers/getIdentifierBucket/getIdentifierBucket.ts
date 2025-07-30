@@ -13,8 +13,7 @@ export function getIdentifierBucket(
   if (!identifier) {
     return -1;
   }
-  // We combine the feature name and user ID to ensure the user gets a
-  // different "roll" for each feature.
+  // We combine the feature name and identifier to ensure the different "roll" for each feature
   const featureIdentifier = `${featureName}-${identifier}`;
   const hash = hashIdentifier(featureIdentifier);
   return Math.abs(hash % 100);

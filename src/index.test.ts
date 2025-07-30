@@ -4,7 +4,7 @@ import { defineFlags } from "./helpers/defineFlags";
 describe("End-To-End Tests - Library Tests", () => {
   it("should return true when feature flag is string", () => {
     const client = createFeatureFlagClient({
-      user: {
+      property: {
         email: "test@example.com",
       },
       flags: [
@@ -13,7 +13,7 @@ describe("End-To-End Tests - Library Tests", () => {
           condition: {
             type: "equal",
             attribute: "email",
-            value: "test@example.com",
+            expectedValue: "test@example.com",
           },
         },
       ],
@@ -23,7 +23,7 @@ describe("End-To-End Tests - Library Tests", () => {
 
   it("should return true when feature flag is number", () => {
     const client = createFeatureFlagClient({
-      user: {
+      property: {
         price: 100,
       },
       flags: [
@@ -32,7 +32,7 @@ describe("End-To-End Tests - Library Tests", () => {
           condition: {
             type: "equal",
             attribute: "price",
-            value: 100,
+            expectedValue: 100,
           },
         },
       ],
@@ -42,7 +42,7 @@ describe("End-To-End Tests - Library Tests", () => {
 
   it("should return true when feature flag is boolean", () => {
     const client = createFeatureFlagClient({
-      user: {
+      property: {
         isAdmin: true,
       },
       flags: [
@@ -51,7 +51,7 @@ describe("End-To-End Tests - Library Tests", () => {
           condition: {
             type: "equal",
             attribute: "isAdmin",
-            value: true,
+            expectedValue: true,
           },
         },
       ],

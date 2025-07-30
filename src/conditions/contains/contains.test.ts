@@ -2,27 +2,27 @@ import { createFeatureFlagClient } from "../..";
 import { containsCondition } from "./contains";
 
 describe("Condition - Contains", () => {
-  it("should return true when userValue contains value", () => {
+  it("should return true when value contains expectedValue", () => {
     expect(
       containsCondition({
-        userValue: "test-value",
-        value: "test",
+        value: "test-value",
+        expectedValue: "test",
       }),
     ).toBe(true);
   });
 
-  it("should return false when userValue does not contain value", () => {
+  it("should return false when value does not contain expectedValue", () => {
     expect(
       containsCondition({
-        userValue: "test-value",
-        value: "not",
+        value: "test-value",
+        expectedValue: "not",
       }),
     ).toBe(false);
   });
 
   it("should return true when feature flag is boolean", () => {
     const client = createFeatureFlagClient({
-      user: {
+      property: {
         roles: "moderator,admin",
       },
       flags: [
@@ -31,7 +31,7 @@ describe("Condition - Contains", () => {
           condition: {
             type: "contains",
             attribute: "roles",
-            value: "admin",
+            expectedValue: "admin",
           },
         },
       ],
