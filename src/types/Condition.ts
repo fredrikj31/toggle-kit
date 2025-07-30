@@ -13,7 +13,7 @@ export type Condition<TUser extends User> =
     }
   // Number Attribute
   | {
-      type: "equal" | "percentage";
+      type: "equal" | "percentage" | "greaterThan";
       attribute: KeysMatching<TUser, number>;
       value: number;
     }
