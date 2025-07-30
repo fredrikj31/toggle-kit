@@ -13,7 +13,7 @@ export type Condition<TProperty extends Property> =
     }
   // Number Attribute
   | {
-      type: "equal" | "percentage" | "greaterThan" | "lessThan";
+      type: "equal" | "greaterThan" | "lessThan";
       attribute: KeysMatching<TProperty, number>;
       expectedValue: number;
     }
@@ -22,6 +22,12 @@ export type Condition<TProperty extends Property> =
       type: "equal";
       attribute: KeysMatching<TProperty, boolean>;
       expectedValue: boolean;
+    }
+  // Percentage Attribute
+  | {
+      type: "percentage";
+      attribute: KeysMatching<TProperty, string>;
+      expectedValue: number;
     }
   // Regex Attribute
   | {
