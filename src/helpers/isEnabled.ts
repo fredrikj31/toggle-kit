@@ -1,6 +1,7 @@
 import { containsCondition } from "../conditions/contains/contains";
 import { endsWithCondition } from "../conditions/endsWith/endsWith";
 import { equalCondition } from "../conditions/equal/equal";
+import { percentageCondition } from "../conditions/percentage/percentage";
 import { startsWithCondition } from "../conditions/startsWith/startsWith";
 import { FeatureFlag } from "../types/FeatureFlag";
 import { FlagNames } from "../types/FlagNames";
@@ -42,6 +43,8 @@ export const isEnabled = <
       return startsWithCondition({ userValue, value });
     case "endsWith":
       return endsWithCondition({ userValue, value });
+    case "percentage":
+      return percentageCondition({ featureName, userValue, value });
     default:
       conditionType satisfies never;
       return false;
