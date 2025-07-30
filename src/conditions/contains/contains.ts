@@ -1,13 +1,13 @@
 export const containsCondition = ({
-  userValue,
+  value,
   expectedValue,
 }: {
-  userValue: string | number | boolean;
+  value: string | number | boolean;
   expectedValue: string;
 }): boolean => {
-  if (typeof userValue === "number" || typeof userValue === "boolean") {
+  if (typeof value === "number" || typeof value === "boolean") {
     return false;
   }
 
-  return userValue.includes(expectedValue);
+  return value.includes(expectedValue);
 };

@@ -2,14 +2,14 @@ import { getIdentifierBucket } from "../../helpers/getIdentifierBucket/getIdenti
 
 export const percentageCondition = ({
   featureName,
-  userValue,
+  value,
   expectedValue,
 }: {
   featureName: string;
-  userValue: string | number | boolean;
+  value: string | number | boolean;
   expectedValue: number;
 }): boolean => {
-  if (typeof userValue === "number" || typeof userValue === "boolean") {
+  if (typeof value === "number" || typeof value === "boolean") {
     return false;
   }
 
@@ -21,6 +21,6 @@ export const percentageCondition = ({
     return true;
   }
 
-  const userValueBucket = getIdentifierBucket(featureName, userValue);
-  return userValueBucket <= expectedValue;
+  const valueBucket = getIdentifierBucket(featureName, value);
+  return valueBucket <= expectedValue;
 };

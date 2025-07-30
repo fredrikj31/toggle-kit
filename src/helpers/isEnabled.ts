@@ -34,23 +34,23 @@ export const isEnabled = <
     return false;
   }
 
-  const userValue = user[attribute];
+  const value = user[attribute];
 
   switch (conditionType) {
     case "equal":
-      return equalCondition({ userValue, expectedValue });
+      return equalCondition({ value, expectedValue });
     case "contains":
-      return containsCondition({ userValue, expectedValue });
+      return containsCondition({ value, expectedValue });
     case "startsWith":
-      return startsWithCondition({ userValue, expectedValue });
+      return startsWithCondition({ value, expectedValue });
     case "endsWith":
-      return endsWithCondition({ userValue, expectedValue });
+      return endsWithCondition({ value, expectedValue });
     case "percentage":
-      return percentageCondition({ featureName, userValue, expectedValue });
+      return percentageCondition({ featureName, value, expectedValue });
     case "greaterThan":
-      return greaterThanCondition({ userValue, expectedValue });
+      return greaterThanCondition({ value, expectedValue });
     case "lessThan":
-      return lessThanCondition({ userValue, expectedValue });
+      return lessThanCondition({ value, expectedValue });
     default:
       conditionType satisfies never;
       return false;

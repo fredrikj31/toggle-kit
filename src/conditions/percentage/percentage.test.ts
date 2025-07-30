@@ -5,7 +5,7 @@ describe("Condition - Percentage", () => {
     expect(
       percentageCondition({
         featureName: "feature-name",
-        userValue: "user-id",
+        value: "user-id",
         expectedValue: 0,
       }),
     ).toBe(false);
@@ -15,34 +15,34 @@ describe("Condition - Percentage", () => {
     expect(
       percentageCondition({
         featureName: "feature-name",
-        userValue: "user-id",
+        value: "user-id",
         expectedValue: 100,
       }),
     ).toBe(true);
   });
 
-  it("should return true when userValue percentage is equal or below expectedValue", () => {
+  it("should return true when value percentage is equal or below expectedValue", () => {
     expect(
       percentageCondition({
         featureName: "feature-name-1",
-        userValue: "user-id-1",
+        value: "user-id-1",
         expectedValue: 29,
       }),
     ).toBe(true);
     expect(
       percentageCondition({
         featureName: "feature-name-1",
-        userValue: "user-id-1",
+        value: "user-id-1",
         expectedValue: 30,
       }),
     ).toBe(true);
   });
 
-  it("should return false when userValue is greater than expectedValue", () => {
+  it("should return false when value is greater than expectedValue", () => {
     expect(
       percentageCondition({
         featureName: "feature-name-2",
-        userValue: "user-id-2",
+        value: "user-id-2",
         expectedValue: 50,
       }),
     ).toBe(false);

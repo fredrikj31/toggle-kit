@@ -2,19 +2,19 @@ import { createFeatureFlagClient } from "../..";
 import { containsCondition } from "./contains";
 
 describe("Condition - Contains", () => {
-  it("should return true when userValue contains expectedValue", () => {
+  it("should return true when value contains expectedValue", () => {
     expect(
       containsCondition({
-        userValue: "test-value",
+        value: "test-value",
         expectedValue: "test",
       }),
     ).toBe(true);
   });
 
-  it("should return false when userValue does not contain expectedValue", () => {
+  it("should return false when value does not contain expectedValue", () => {
     expect(
       containsCondition({
-        userValue: "test-value",
+        value: "test-value",
         expectedValue: "not",
       }),
     ).toBe(false);
