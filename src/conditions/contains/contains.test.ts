@@ -2,20 +2,20 @@ import { createFeatureFlagClient } from "../..";
 import { containsCondition } from "./contains";
 
 describe("Condition - Contains", () => {
-  it("should return true when userValue contains value", () => {
+  it("should return true when userValue contains expectedValue", () => {
     expect(
       containsCondition({
         userValue: "test-value",
-        value: "test",
+        expectedValue: "test",
       }),
     ).toBe(true);
   });
 
-  it("should return false when userValue does not contain value", () => {
+  it("should return false when userValue does not contain expectedValue", () => {
     expect(
       containsCondition({
         userValue: "test-value",
-        value: "not",
+        expectedValue: "not",
       }),
     ).toBe(false);
   });
@@ -31,7 +31,7 @@ describe("Condition - Contains", () => {
           condition: {
             type: "contains",
             attribute: "roles",
-            value: "admin",
+            expectedValue: "admin",
           },
         },
       ],

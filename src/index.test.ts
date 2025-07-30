@@ -13,7 +13,7 @@ describe("End-To-End Tests - Library Tests", () => {
           condition: {
             type: "equal",
             attribute: "email",
-            value: "test@example.com",
+            expectedValue: "test@example.com",
           },
         },
       ],
@@ -32,7 +32,7 @@ describe("End-To-End Tests - Library Tests", () => {
           condition: {
             type: "equal",
             attribute: "price",
-            value: 100,
+            expectedValue: 100,
           },
         },
       ],
@@ -51,7 +51,7 @@ describe("End-To-End Tests - Library Tests", () => {
           condition: {
             type: "equal",
             attribute: "isAdmin",
-            value: true,
+            expectedValue: true,
           },
         },
       ],

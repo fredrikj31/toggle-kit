@@ -9,17 +9,17 @@ export type Condition<TUser extends User> =
   | {
       type: "equal" | "contains" | "startsWith" | "endsWith";
       attribute: KeysMatching<TUser, string>;
-      value: string;
+      expectedValue: string;
     }
   // Number Attribute
   | {
       type: "equal" | "percentage" | "greaterThan" | "lessThan";
       attribute: KeysMatching<TUser, number>;
-      value: number;
+      expectedValue: number;
     }
   // Boolean Attribute
   | {
       type: "equal";
       attribute: KeysMatching<TUser, boolean>;
-      value: boolean;
+      expectedValue: boolean;
     };

@@ -1,9 +1,9 @@
 export const equalCondition = ({
   userValue,
-  value,
+  expectedValue,
 }: {
   userValue: string | number | boolean;
-  value: string | number | boolean;
+  expectedValue: string | number | boolean;
 }): boolean => {
-  return userValue === value;
+  return userValue === expectedValue;
 };

@@ -28,7 +28,7 @@ export const isEnabled = <
     return false;
   }
 
-  const { attribute, value, type: conditionType } = flag.condition;
+  const { attribute, expectedValue, type: conditionType } = flag.condition;
 
   if (!(attribute in user)) {
     return false;
@@ -38,19 +38,19 @@ export const isEnabled = <
 
   switch (conditionType) {
     case "equal":
-      return equalCondition({ userValue, value });
+      return equalCondition({ userValue, expectedValue });
     case "contains":
-      return containsCondition({ userValue, value });
+      return containsCondition({ userValue, expectedValue });
     case "startsWith":
-      return startsWithCondition({ userValue, value });
+      return startsWithCondition({ userValue, expectedValue });
     case "endsWith":
-      return endsWithCondition({ userValue, value });
+      return endsWithCondition({ userValue, expectedValue });
     case "percentage":
-      return percentageCondition({ featureName, userValue, value });
+      return percentageCondition({ featureName, userValue, expectedValue });
     case "greaterThan":
-      return greaterThanCondition({ userValue, value });
+      return greaterThanCondition({ userValue, expectedValue });
     case "lessThan":
-      return lessThanCondition({ userValue, value });
+      return lessThanCondition({ userValue, expectedValue });
     default:
       conditionType satisfies never;
       return false;
