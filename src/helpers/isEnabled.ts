@@ -1,6 +1,7 @@
 import { containsCondition } from "../conditions/contains/contains";
 import { endsWithCondition } from "../conditions/endsWith/endsWith";
 import { equalCondition } from "../conditions/equal/equal";
+import { greaterThanCondition } from "../conditions/greaterThan/greaterThan";
 import { percentageCondition } from "../conditions/percentage/percentage";
 import { startsWithCondition } from "../conditions/startsWith/startsWith";
 import { FeatureFlag } from "../types/FeatureFlag";
@@ -45,6 +46,8 @@ export const isEnabled = <
       return endsWithCondition({ userValue, value });
     case "percentage":
       return percentageCondition({ featureName, userValue, value });
+    case "greaterThan":
+      return greaterThanCondition({ userValue, value });
     default:
       conditionType satisfies never;
       return false;
