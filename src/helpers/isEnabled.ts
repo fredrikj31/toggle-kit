@@ -7,19 +7,19 @@ import { percentageCondition } from "../conditions/percentage/percentage";
 import { startsWithCondition } from "../conditions/startsWith/startsWith";
 import { FeatureFlag } from "../types/FeatureFlag";
 import { FlagNames } from "../types/FlagNames";
-import { User } from "../types/User";
+import { Property } from "../types/Property";
 
 export const isEnabled = <
-  const TUser extends User,
-  const TFlags extends readonly FeatureFlag<TUser>[],
+  const TProperty extends Property,
+  const TFlags extends readonly FeatureFlag<TProperty>[],
 >({
   featureName,
   flags,
-  user,
+  property,
 }: {
   featureName: FlagNames<TFlags>;
-  flags: Map<string, FeatureFlag<TUser>>;
-  user: TUser;
+  flags: Map<string, FeatureFlag<TProperty>>;
+  property: TProperty;
 }): boolean => {
   const flag = flags.get(featureName);
 
@@ -30,11 +30,11 @@ export const isEnabled = <
 
   const { attribute, expectedValue, type: conditionType } = flag.condition;
 
-  if (!(attribute in user)) {
+  if (!(attribute in property)) {
     return false;
   }
 
-  const value = user[attribute];
+  const value = property[attribute];
 
   switch (conditionType) {
     case "equal":

@@ -1,19 +1,19 @@
 import { isEnabled } from "./helpers/isEnabled";
 import { FeatureFlag } from "./types/FeatureFlag";
 import { FlagNames } from "./types/FlagNames";
-import { User } from "./types/User";
+import { Property } from "./types/Property";
 
 class FeatureFlagClient<
-  const TUser extends User,
-  const TFlags extends readonly FeatureFlag<TUser>[],
+  const TProperty extends Property,
+  const TFlags extends readonly FeatureFlag<TProperty>[],
 > {
-  private flags: Map<string, FeatureFlag<TUser>>;
-  private user: TUser;
+  private flags: Map<string, FeatureFlag<TProperty>>;
+  private property: TProperty;
 
-  constructor(user: TUser, initialFlags: TFlags) {
-    this.user = user;
+  constructor(property: TProperty, initialFlags: TFlags) {
+    this.property = property;
     this.flags = new Map(
-      (initialFlags as unknown as FeatureFlag<TUser>[]).map((flag) => [
+      (initialFlags as unknown as FeatureFlag<TProperty>[]).map((flag) => [
         flag.name,
         flag,
       ]),
@@ -24,13 +24,13 @@ class FeatureFlagClient<
     isEnabled({
       featureName,
       flags: this.flags,
-      user: this.user,
+      property: this.property,
     });
 }
 
 export function createFeatureFlagClient<
-  const TUser extends User,
-  const TFlags extends readonly FeatureFlag<TUser>[],
->({ user, flags }: { user: TUser; flags: TFlags }) {
-  return new FeatureFlagClient(user, flags);
+  const TProperty extends Property,
+  const TFlags extends readonly FeatureFlag<TProperty>[],
+>({ property, flags }: { property: TProperty; flags: TFlags }) {
+  return new FeatureFlagClient(property, flags);
 }

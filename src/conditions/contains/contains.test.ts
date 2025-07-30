@@ -22,7 +22,7 @@ describe("Condition - Contains", () => {
 
   it("should return true when feature flag is boolean", () => {
     const client = createFeatureFlagClient({
-      user: {
+      property: {
         roles: "moderator,admin",
       },
       flags: [
