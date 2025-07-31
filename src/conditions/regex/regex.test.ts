@@ -1,3 +1,4 @@
+import { createFeatureFlagClient } from "../..";
 import { regexCondition } from "./regex";
 
 describe("Condition - Regex", () => {
@@ -25,5 +26,24 @@ describe("Condition - Regex", () => {
     const expectedResult = false;
 
     expect(result).toBe(expectedResult);
+  });
+
+  it("should pass end-to-end test", () => {
+    const client = createFeatureFlagClient({
+      property: {
+        email: "test@example.com",
+      },
+      flags: [
+        {
+          name: "example-page",
+          condition: {
+            type: "regex",
+            attribute: "email",
+            expectedValue: /.+\@example.com/,
+          },
+        },
+      ],
+    });
+    expect(client.isEnabled("example-page")).toBe(true);
   });
 });

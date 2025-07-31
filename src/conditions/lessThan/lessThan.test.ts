@@ -1,3 +1,4 @@
+import { createFeatureFlagClient } from "../..";
 import { lessThanCondition } from "./lessThan";
 
 describe("Condition - Less Than", () => {
@@ -25,5 +26,24 @@ describe("Condition - Less Than", () => {
     const expectedResult = false;
 
     expect(result).toBe(expectedResult);
+  });
+
+  it("should pass end-to-end test", () => {
+    const client = createFeatureFlagClient({
+      property: {
+        age: 18,
+      },
+      flags: [
+        {
+          name: "is-teenager",
+          condition: {
+            type: "lessThan",
+            attribute: "age",
+            expectedValue: 21,
+          },
+        },
+      ],
+    });
+    expect(client.isEnabled("is-teenager")).toBe(true);
   });
 });

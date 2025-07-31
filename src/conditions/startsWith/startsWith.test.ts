@@ -1,3 +1,4 @@
+import { createFeatureFlagClient } from "../..";
 import { startsWithCondition } from "./startsWith";
 
 describe("Condition - Starts With", () => {
@@ -17,5 +18,24 @@ describe("Condition - Starts With", () => {
         expectedValue: "test",
       }),
     ).toBe(false);
+  });
+
+  it("should pass end-to-end test", () => {
+    const client = createFeatureFlagClient({
+      property: {
+        username: "JohnDoe",
+      },
+      flags: [
+        {
+          name: "is-john",
+          condition: {
+            type: "startsWith",
+            attribute: "username",
+            expectedValue: "John",
+          },
+        },
+      ],
+    });
+    expect(client.isEnabled("is-john")).toBe(true);
   });
 });
