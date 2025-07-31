@@ -1,3 +1,4 @@
+import { createFeatureFlagClient } from "../..";
 import { percentageCondition } from "./percentage";
 
 describe("Condition - Percentage", () => {
@@ -46,5 +47,24 @@ describe("Condition - Percentage", () => {
         expectedValue: 50,
       }),
     ).toBe(false);
+  });
+
+  it("should pass end-to-end test", () => {
+    const client = createFeatureFlagClient({
+      property: {
+        userId: "484f45a0-f7ea-4f95-87c3-a554a9ef5f03",
+      },
+      flags: [
+        {
+          name: "new-feature",
+          condition: {
+            type: "percentage",
+            attribute: "userId",
+            expectedValue: 50,
+          },
+        },
+      ],
+    });
+    expect(client.isEnabled("new-feature")).toBe(true);
   });
 });

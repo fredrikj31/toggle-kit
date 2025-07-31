@@ -1,3 +1,4 @@
+import { createFeatureFlagClient } from "../..";
 import { greaterThanCondition } from "./greaterThan";
 
 describe("Condition - Greater Than", () => {
@@ -25,5 +26,24 @@ describe("Condition - Greater Than", () => {
     const expectedResult = false;
 
     expect(result).toBe(expectedResult);
+  });
+
+  it("should pass end-to-end test", () => {
+    const client = createFeatureFlagClient({
+      property: {
+        age: 25,
+      },
+      flags: [
+        {
+          name: "is-adult",
+          condition: {
+            type: "greaterThan",
+            attribute: "age",
+            expectedValue: 21,
+          },
+        },
+      ],
+    });
+    expect(client.isEnabled("is-adult")).toBe(true);
   });
 });

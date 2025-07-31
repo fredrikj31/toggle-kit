@@ -1,3 +1,4 @@
+import { createFeatureFlagClient } from "../..";
 import { endsWithCondition } from "./endsWith";
 
 describe("Condition - Ends With", () => {
@@ -17,5 +18,24 @@ describe("Condition - Ends With", () => {
         expectedValue: "test",
       }),
     ).toBe(false);
+  });
+
+  it("should pass end-to-end test", () => {
+    const client = createFeatureFlagClient({
+      property: {
+        email: "test@example.com",
+      },
+      flags: [
+        {
+          name: "example-emails",
+          condition: {
+            type: "endsWith",
+            attribute: "email",
+            expectedValue: "example.com",
+          },
+        },
+      ],
+    });
+    expect(client.isEnabled("example-emails")).toBe(true);
   });
 });

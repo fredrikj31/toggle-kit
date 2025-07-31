@@ -1,3 +1,4 @@
+import { createFeatureFlagClient } from "../..";
 import { equalCondition } from "./equal";
 
 describe("Condition - Equal", () => {
@@ -17,5 +18,24 @@ describe("Condition - Equal", () => {
         expectedValue: "test-value",
       }),
     ).toBe(false);
+  });
+
+  it("should pass end-to-end test", () => {
+    const client = createFeatureFlagClient({
+      property: {
+        isAdmin: true,
+      },
+      flags: [
+        {
+          name: "is-admin",
+          condition: {
+            type: "equal",
+            attribute: "isAdmin",
+            expectedValue: true,
+          },
+        },
+      ],
+    });
+    expect(client.isEnabled("is-admin")).toBe(true);
   });
 });

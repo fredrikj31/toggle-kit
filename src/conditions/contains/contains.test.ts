@@ -20,7 +20,7 @@ describe("Condition - Contains", () => {
     ).toBe(false);
   });
 
-  it("should return true when feature flag is boolean", () => {
+  it("should pass end-to-end test", () => {
     const client = createFeatureFlagClient({
       property: {
         roles: "moderator,admin",
