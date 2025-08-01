@@ -4,7 +4,10 @@
   "description": "A feature flag library which runs fully on the service itself, without any dependencies.",
   "main": "./lib/index.js",
   "files": [
-    "lib/**/*"
+    "lib/**/*.js",
+    "lib/**/*.d.ts",
+    "!lib/**/*.test.js",
+    "!lib/**/*.test.d.ts"
   ],
   "scripts": {
     "build": "tsc",
