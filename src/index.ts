@@ -4,6 +4,7 @@ import { FeatureFlagClient } from "./types/FeatureFlagClient";
 import { FeatureFlag } from "./types/FeatureFlag";
 import { FlagNames } from "./types/FlagNames";
 import { Property } from "./types/Property";
+import { Condition } from "./types/Condition";
 
 export function createFeatureFlagClient<
   const TProperty extends Property,
@@ -29,4 +30,10 @@ export function createFeatureFlagClient<
   };
 }
 
-export { defineFlags, type FeatureFlagClient, type Property, type FeatureFlag };
+export {
+  defineFlags,
+  type FeatureFlagClient,
+  type Property,
+  type FeatureFlag,
+  type Condition,
+};
