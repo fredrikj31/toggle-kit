@@ -1,3 +1,4 @@
+import { defineFlags } from "./helpers/defineFlags";
 import { isEnabled } from "./helpers/isEnabled";
 import { FeatureFlag } from "./types/FeatureFlag";
 import { FlagNames } from "./types/FlagNames";
@@ -30,3 +31,5 @@ export function createFeatureFlagClient<
     isEnabled: isEnabledCheck,
   };
 }
+
+export { defineFlags };
