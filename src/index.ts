@@ -29,4 +29,4 @@ export function createFeatureFlagClient<
   };
 }
 
-export { defineFlags, type FeatureFlagClient };
+export { defineFlags, type FeatureFlagClient, type Property, type FeatureFlag };
