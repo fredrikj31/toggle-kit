@@ -1,11 +1,9 @@
+import { defineFlags } from "./helpers/defineFlags";
 import { isEnabled } from "./helpers/isEnabled";
+import { FeatureFlagClient } from "./types/FeatureFlagClient";
 import { FeatureFlag } from "./types/FeatureFlag";
 import { FlagNames } from "./types/FlagNames";
 import { Property } from "./types/Property";
-
-export type FeatureFlagClient<TFlags extends readonly FeatureFlag<any>[]> = {
-  isEnabled: (featureName: FlagNames<TFlags>) => boolean;
-};
 
 export function createFeatureFlagClient<
   const TProperty extends Property,
@@ -30,3 +28,5 @@ export function createFeatureFlagClient<
     isEnabled: isEnabledCheck,
   };
 }
+
+export { defineFlags, type FeatureFlagClient, type Property, type FeatureFlag };
