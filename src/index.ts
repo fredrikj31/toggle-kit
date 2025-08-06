@@ -1,4 +1,3 @@
-import { defineFlags } from "./helpers/defineFlags";
 import { isEnabled } from "./helpers/isEnabled";
 import { FeatureFlagClient } from "./types/FeatureFlagClient";
 import { FeatureFlag } from "./types/FeatureFlag";
@@ -30,7 +29,6 @@ export function createFeatureFlagClient<
 }
 
 export {
-  defineFlags,
   type FeatureFlagClient,
   type Property,
   type FeatureFlag,
