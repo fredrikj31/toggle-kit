@@ -7,7 +7,6 @@ import { percentageCondition } from "../conditions/percentage/percentage";
 import { regexCondition } from "../conditions/regex/regex";
 import { startsWithCondition } from "../conditions/startsWith/startsWith";
 import { FeatureFlag } from "../types/FeatureFlag";
-import { FlagNames } from "../types/FlagNames";
 import { Property } from "../types/Property";
 
 export const isEnabled = <

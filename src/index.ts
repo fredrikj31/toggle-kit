@@ -2,7 +2,6 @@ import { defineFlags } from "./helpers/defineFlags";
 import { isEnabled } from "./helpers/isEnabled";
 import { FeatureFlagClient } from "./types/FeatureFlagClient";
 import { FeatureFlag } from "./types/FeatureFlag";
-import { FlagNames } from "./types/FlagNames";
 import { Property } from "./types/Property";
 import { Condition } from "./types/Condition";
 
