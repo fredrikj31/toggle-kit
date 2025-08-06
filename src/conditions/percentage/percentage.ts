@@ -1,11 +1,11 @@
 import { getIdentifierBucket } from "../../helpers/getIdentifierBucket/getIdentifierBucket";
 
-export const percentageCondition = ({
+export const percentageCondition = <FlagNames>({
   featureName,
   value,
   expectedValue,
 }: {
-  featureName: string;
+  featureName: FlagNames;
   value: string | number | boolean;
   expectedValue: number;
 }): boolean => {
@@ -21,6 +21,6 @@ export const percentageCondition = ({
     return true;
   }
 
-  const valueBucket = getIdentifierBucket(featureName, value);
+  const valueBucket = getIdentifierBucket({ featureName, identifier: value });
   return valueBucket <= expectedValue;
 };
