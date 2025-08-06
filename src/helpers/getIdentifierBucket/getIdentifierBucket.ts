@@ -6,10 +6,13 @@ import { hashIdentifier } from "../hashIdentifier/hashIdentifier";
  * @param identifier A stable identifier.
  * @returns A number between 0 and 99.
  */
-export function getIdentifierBucket(
-  featureName: string,
-  identifier: string,
-): number {
+export const getIdentifierBucket = <FlagNames>({
+  featureName,
+  identifier,
+}: {
+  featureName: FlagNames;
+  identifier: string;
+}): number => {
   if (!identifier) {
     return -1;
   }
@@ -17,4 +20,4 @@ export function getIdentifierBucket(
   const featureIdentifier = `${featureName}-${identifier}`;
   const hash = hashIdentifier(featureIdentifier);
   return Math.abs(hash % 100);
-}
+};

@@ -1,7 +1,6 @@
 import { Condition } from "./Condition";
-import { Property } from "./Property";
 
-export type FeatureFlag<TProperty extends Property> = {
-  name: string;
-  condition: Condition<TProperty>;
+export type FeatureFlag<FlagNames> = {
+  name: FlagNames;
+  condition: Condition;
 };

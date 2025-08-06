@@ -1,25 +1,20 @@
-import { defineFlags } from "./helpers/defineFlags";
 import { isEnabled } from "./helpers/isEnabled";
 import { FeatureFlagClient } from "./types/FeatureFlagClient";
 import { FeatureFlag } from "./types/FeatureFlag";
-import { FlagNames } from "./types/FlagNames";
 import { Property } from "./types/Property";
 import { Condition } from "./types/Condition";
 
-export function createFeatureFlagClient<
-  const TProperty extends Property,
-  const TFlags extends readonly FeatureFlag<TProperty>[],
->({ property, flags: initialFlags }: { property: TProperty; flags: TFlags }) {
-  // Create a Map for efficient flag lookup by name.
-  const flags = new Map(
-    (initialFlags as unknown as FeatureFlag<TProperty>[]).map((flag) => [
-      flag.name,
-      flag,
-    ]),
-  );
+export function createFeatureFlagClient<FlagNames>({
+  property,
+  flags: initialFlags,
+}: {
+  property: Property;
+  flags: FeatureFlag<FlagNames>[];
+}): FeatureFlagClient<FlagNames> {
+  const flags = new Map(initialFlags.map((flag) => [flag.name, flag]));
 
-  const isEnabledCheck = (featureName: FlagNames<TFlags>): boolean =>
-    isEnabled({
+  const isEnabledCheck = (featureName: FlagNames): boolean =>
+    isEnabled<FlagNames>({
       featureName,
       flags,
       property,
@@ -31,7 +26,6 @@ export function createFeatureFlagClient<
 }
 
 export {
-  defineFlags,
   type FeatureFlagClient,
   type Property,
   type FeatureFlag,

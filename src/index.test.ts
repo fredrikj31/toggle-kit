@@ -1,5 +1,4 @@
 import { createFeatureFlagClient } from ".";
-import { defineFlags } from "./helpers/defineFlags";
 
 describe("End-To-End Tests - Library Tests", () => {
   it("should return true when feature flag is string", () => {

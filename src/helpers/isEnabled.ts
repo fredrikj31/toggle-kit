@@ -7,20 +7,16 @@ import { percentageCondition } from "../conditions/percentage/percentage";
 import { regexCondition } from "../conditions/regex/regex";
 import { startsWithCondition } from "../conditions/startsWith/startsWith";
 import { FeatureFlag } from "../types/FeatureFlag";
-import { FlagNames } from "../types/FlagNames";
 import { Property } from "../types/Property";
 
-export const isEnabled = <
-  const TProperty extends Property,
-  const TFlags extends readonly FeatureFlag<TProperty>[],
->({
+export const isEnabled = <FlagNames>({
   featureName,
   flags,
   property,
 }: {
-  featureName: FlagNames<TFlags>;
-  flags: Map<string, FeatureFlag<TProperty>>;
-  property: TProperty;
+  featureName: FlagNames;
+  flags: Map<FlagNames, FeatureFlag<FlagNames>>;
+  property: Property;
 }): boolean => {
   const flag = flags.get(featureName);
 
@@ -47,7 +43,11 @@ export const isEnabled = <
     case "endsWith":
       return endsWithCondition({ value, expectedValue });
     case "percentage":
-      return percentageCondition({ featureName, value, expectedValue });
+      return percentageCondition<FlagNames>({
+        featureName,
+        value,
+        expectedValue,
+      });
     case "greaterThan":
       return greaterThanCondition({ value, expectedValue });
     case "lessThan":
