@@ -1,6 +1,6 @@
 import { Condition } from "./Condition";
 
-export type FeatureFlag<FlagNames = {}> = {
+export type FeatureFlag<PropertyNames = {}, FlagNames = {}> = {
   name: FlagNames;
-  condition: Condition;
+  condition: Condition<PropertyNames>;
 };
