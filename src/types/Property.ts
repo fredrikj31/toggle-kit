@@ -1,3 +1,4 @@
-export type Property = {
-  [key: string]: string | number | boolean;
-};
+export type Property<PropertyNames extends string> = Record<
+  PropertyNames,
+  string | number | boolean
+>;

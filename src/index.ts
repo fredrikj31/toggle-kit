@@ -4,17 +4,20 @@ import { FeatureFlag } from "./types/FeatureFlag";
 import { Property } from "./types/Property";
 import { Condition } from "./types/Condition";
 
-export function createFeatureFlagClient<FlagNames>({
+export function createFeatureFlagClient<
+  PropertyNames extends string,
+  FlagNames,
+>({
   property,
   flags: initialFlags,
 }: {
-  property: Property;
-  flags: FeatureFlag<FlagNames>[];
+  property: Property<PropertyNames>;
+  flags: FeatureFlag<PropertyNames, FlagNames>[];
 }): FeatureFlagClient<FlagNames> {
   const flags = new Map(initialFlags.map((flag) => [flag.name, flag]));
 
   const isEnabledCheck = (featureName: FlagNames): boolean =>
-    isEnabled<FlagNames>({
+    isEnabled<PropertyNames, FlagNames>({
       featureName,
       flags,
       property,
