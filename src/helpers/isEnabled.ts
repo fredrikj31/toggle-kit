@@ -9,14 +9,14 @@ import { startsWithCondition } from "../conditions/startsWith/startsWith";
 import { FeatureFlag } from "../types/FeatureFlag";
 import { Property } from "../types/Property";
 
-export const isEnabled = <FlagNames>({
+export const isEnabled = <PropertyNames extends string, FlagNames>({
   featureName,
   flags,
   property,
 }: {
   featureName: FlagNames;
-  flags: Map<FlagNames, FeatureFlag<FlagNames>>;
-  property: Property;
+  flags: Map<FlagNames, FeatureFlag<PropertyNames, FlagNames>>;
+  property: Property<PropertyNames>;
 }): boolean => {
   const flag = flags.get(featureName);
 
