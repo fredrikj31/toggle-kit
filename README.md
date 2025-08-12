@@ -107,6 +107,8 @@ const client = createFeatureFlagClient({
 });
 ```
 
+If the getting started examples isn't enough, you can read more in depth documentation [here](./docs/README.md).
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
