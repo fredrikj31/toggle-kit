@@ -4,7 +4,6 @@ A customizable feature flag library, which allows you to define properties and f
 
 ## Table of contents
 
-- [Prerequisites](#prerequisites)
 - [Table of contents](#table-of-contents)
 - [Getting Started](#getting-started)
 - [Installation](#installation)
