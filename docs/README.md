@@ -13,3 +13,4 @@ This guide will follow you through the different ways you can utilize the librar
 - [Contains](./conditions/contains.md)
 - [Ends With](./conditions/endsWith.md)
 - [Equal](./conditions/equal.md)
+- [Greater Than](./conditions/greaterThan.md)
