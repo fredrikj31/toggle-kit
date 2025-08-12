@@ -2,16 +2,6 @@
 
 A customizable feature flag library, which allows you to define properties and flags. Everything runs "locally" on the service (application or API), without any dependencies.
 
-## Prerequisites
-
-This project requires NodeJS (version 20 or later) and NPM. Node and NPM are really easy to install. To make sure you have them available on your machine, try running the following command.
-
-```shell
-$ npm -v && node -v
-10.x.x
-v20.x.x
-```
-
 ## Table of contents
 
 - [Prerequisites](#prerequisites)
@@ -35,9 +25,7 @@ These instructions will help you install the package itself and set the library 
 
 ## Installation
 
-**BEFORE YOU INSTALL:** please read the [prerequisites](#prerequisites)
-
-Start by ensuing you are fulfilling the prerequisites
+This project requires NodeJS (version 20 or later) and NPM. Node and NPM are really easy to install. To make sure you have them available on your machine, try running the following command.
 
 ```shell
 $ npm -v && node -v
