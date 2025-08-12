@@ -10,4 +10,4 @@ This guide will follow you through the different ways you can utilize the librar
 
 ## Conditions
 
-- [Contains](./conditions/Contains.md)
+- [Contains](./conditions/contains.md)
