@@ -15,3 +15,4 @@ This guide will follow you through the different ways you can utilize the librar
 - [Equal](./conditions/equal.md)
 - [Greater Than](./conditions/greaterThan.md)
 - [Less Than](./conditions/lessThan.md)
+- [Percentage](./conditions/percentage.md)
