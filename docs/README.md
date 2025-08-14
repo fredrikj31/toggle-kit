@@ -2,8 +2,19 @@
 
 ## Usages
 
-- [Usages](./usages/README.md)
+This guide will follow you through the different ways you can utilize the library to manage, control and use your flags.
+
+- [Simple Setup](./usages/simple.md)
+- [Typed Setup](./usages/typed.md)
+- [Structured Setup](./usages/structured.md)
 
 ## Conditions
 
-- [Contains](./conditions/Contains.md)
+- [Contains](./conditions/contains.md)
+- [Ends With](./conditions/endsWith.md)
+- [Equal](./conditions/equal.md)
+- [Greater Than](./conditions/greaterThan.md)
+- [Less Than](./conditions/lessThan.md)
+- [Percentage](./conditions/percentage.md)
+- [Regex](./conditions/regex.md)
+- [Starts With](./conditions/startsWith.md)
