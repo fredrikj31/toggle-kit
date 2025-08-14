@@ -17,3 +17,4 @@ This guide will follow you through the different ways you can utilize the librar
 - [Less Than](./conditions/lessThan.md)
 - [Percentage](./conditions/percentage.md)
 - [Regex](./conditions/regex.md)
+- [Starts With](./conditions/startsWith.md)
