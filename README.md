@@ -11,6 +11,7 @@ A customizable feature flag library, which allows you to define properties and f
   - [Setting up feature flag client](#setting-up-feature-flag-client)
   - [Add properties to client](#add-properties-to-client)
   - [Create feature flag](#create-feature-flag)
+  - [Evaluate feature flag](#evaluate-feature-flag)
 - [Contributing](#contributing)
 - [Credits](#credits)
 - [Built With](#built-with)
