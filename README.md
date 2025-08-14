@@ -106,6 +106,36 @@ const client = createFeatureFlagClient({
 });
 ```
 
+### Evaluate feature flag
+
+When you have finished setting up the feature flag client, and created your flags, you start evaluating flags across your codebase.
+
+```ts
+import { createFeatureFlagClient } from "toggle-kit";
+
+const client = createFeatureFlagClient({
+  property: {
+    userId: "eb10e5c2-e3f4-46fc-a6fd-f2ddba0973fb",
+    email: "example@mail.com",
+    age: 21,
+    isAdmin: false,
+  },
+  flags: [
+    {
+      name: "secret-page",
+      condition: {
+        type: "equal",
+        attribute: "email",
+        expectedValue: "test@example.com",
+      },
+    },
+  ],
+});
+
+const allowSecretPage = client.isEnabled("secret-page");
+console.log(allowSecretPage); // False
+```
+
 If the getting started examples isn't enough, you can read more in depth documentation [here](./docs/README.md).
 
 ## Contributing
