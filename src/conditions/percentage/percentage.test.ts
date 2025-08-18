@@ -57,11 +57,13 @@ describe("Condition - Percentage", () => {
       flags: [
         {
           name: "new-feature",
-          condition: {
-            type: "percentage",
-            attribute: "userId",
-            expectedValue: 50,
-          },
+          conditions: [
+            {
+              type: "percentage",
+              attribute: "userId",
+              expectedValue: 50,
+            },
+          ],
         },
       ],
     });

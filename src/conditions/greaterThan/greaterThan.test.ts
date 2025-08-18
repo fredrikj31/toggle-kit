@@ -36,11 +36,13 @@ describe("Condition - Greater Than", () => {
       flags: [
         {
           name: "is-adult",
-          condition: {
-            type: "greaterThan",
-            attribute: "age",
-            expectedValue: 21,
-          },
+          conditions: [
+            {
+              type: "greaterThan",
+              attribute: "age",
+              expectedValue: 21,
+            },
+          ],
         },
       ],
     });

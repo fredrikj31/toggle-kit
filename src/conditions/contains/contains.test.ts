@@ -28,11 +28,13 @@ describe("Condition - Contains", () => {
       flags: [
         {
           name: "admin-dashboard",
-          condition: {
-            type: "contains",
-            attribute: "roles",
-            expectedValue: "admin",
-          },
+          conditions: [
+            {
+              type: "contains",
+              attribute: "roles",
+              expectedValue: "admin",
+            },
+          ],
         },
       ],
     });

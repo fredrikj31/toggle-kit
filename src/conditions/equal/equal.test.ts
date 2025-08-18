@@ -28,11 +28,13 @@ describe("Condition - Equal", () => {
       flags: [
         {
           name: "is-admin",
-          condition: {
-            type: "equal",
-            attribute: "isAdmin",
-            expectedValue: true,
-          },
+          conditions: [
+            {
+              type: "equal",
+              attribute: "isAdmin",
+              expectedValue: true,
+            },
+          ],
         },
       ],
     });
