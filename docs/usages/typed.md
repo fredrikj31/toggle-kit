@@ -28,7 +28,7 @@ const client = createFeatureFlagClient<PropertyNames, FlagNames>({
   flags: [
     {
       name: "secret-page", // <--- Autocompletion
-      condition: {
+      conditions: {
         type: "equal",
         attribute: "email", // <--- Autocompletion
         expectedValue: "test@example.com",
@@ -62,7 +62,7 @@ const client = createFeatureFlagClient<string, FlagNames>({
   flags: [
     {
       name: "secret-page", // <--- Autocompletion
-      condition: {
+      conditions: {
         type: "equal",
         attribute: "email", // <--- No Autocompletion
         expectedValue: "test@example.com",
@@ -94,7 +94,7 @@ const client = createFeatureFlagClient<string, string>({
   flags: [
     {
       name: "secret-page", // <--- No Autocompletion
-      condition: {
+      conditions: {
         type: "equal",
         attribute: "email", // <--- No Autocompletion
         expectedValue: "test@example.com",

@@ -36,11 +36,13 @@ describe("Condition - Regex", () => {
       flags: [
         {
           name: "example-page",
-          condition: {
-            type: "regex",
-            attribute: "email",
-            expectedValue: /.+\@example.com/,
-          },
+          conditions: [
+            {
+              type: "regex",
+              attribute: "email",
+              expectedValue: /.+\@example.com/,
+            },
+          ],
         },
       ],
     });

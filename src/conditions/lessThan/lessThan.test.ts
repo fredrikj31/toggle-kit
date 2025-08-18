@@ -36,11 +36,13 @@ describe("Condition - Less Than", () => {
       flags: [
         {
           name: "is-teenager",
-          condition: {
-            type: "lessThan",
-            attribute: "age",
-            expectedValue: 21,
-          },
+          conditions: [
+            {
+              type: "lessThan",
+              attribute: "age",
+              expectedValue: 21,
+            },
+          ],
         },
       ],
     });

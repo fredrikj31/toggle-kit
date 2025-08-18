@@ -39,11 +39,13 @@ type FlagNames = "secret-page";
 const flags: FeatureFlag<PropertyNames, FlagNames>[] = [
   {
     name: "secret-page", // <--- Autocompletion
-    condition: {
-      type: "equal",
-      attribute: "email", // <--- Autocompletion
-      expectedValue: "test@example.com",
-    },
+    conditions: [
+      {
+        type: "equal",
+        attribute: "email", // <--- Autocompletion
+        expectedValue: "test@example.com",
+      },
+    ],
   },
 ];
 

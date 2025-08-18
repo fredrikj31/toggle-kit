@@ -12,19 +12,23 @@ const client = createFeatureFlagClient({
   flags: [
     {
       name: "is-john",
-      condition: {
-        type: "equal",
-        attribute: "username",
-        expectedValue: "JohnDoe",
-      },
+      conditions: [
+        {
+          type: "equal",
+          attribute: "username",
+          expectedValue: "JohnDoe",
+        },
+      ],
     },
     {
       name: "is-jane",
-      condition: {
-        type: "equal",
-        attribute: "username",
-        expectedValue: "JaneDoe",
-      },
+      conditions: [
+        {
+          type: "equal",
+          attribute: "username",
+          expectedValue: "JaneDoe",
+        },
+      ],
     },
   ],
 });

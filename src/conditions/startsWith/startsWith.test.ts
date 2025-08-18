@@ -28,11 +28,13 @@ describe("Condition - Starts With", () => {
       flags: [
         {
           name: "is-john",
-          condition: {
-            type: "startsWith",
-            attribute: "username",
-            expectedValue: "John",
-          },
+          conditions: [
+            {
+              type: "startsWith",
+              attribute: "username",
+              expectedValue: "John",
+            },
+          ],
         },
       ],
     });

@@ -12,19 +12,23 @@ const client = createFeatureFlagClient({
   flags: [
     {
       name: "is-example-mail",
-      condition: {
-        type: "endsWith",
-        attribute: "email",
-        expectedValue: "@example.com",
-      },
+      conditions: [
+        {
+          type: "endsWith",
+          attribute: "email",
+          expectedValue: "@example.com",
+        },
+      ],
     },
     {
       name: "is-google-mail",
-      condition: {
-        type: "endsWith",
-        attribute: "email",
-        expectedValue: "@gmail.com",
-      },
+      conditions: [
+        {
+          type: "endsWith",
+          attribute: "email",
+          expectedValue: "@gmail.com",
+        },
+      ],
     },
   ],
 });

@@ -62,7 +62,7 @@ const client = createFeatureFlagClient({
 
 ### Add properties to client
 
-Secondly we want add some attributes we can use in the condition in each of the feature flags we are creating later. You are allowed to use `string`, `number` or `boolean` types as a property
+Secondly we want add some attributes we can use in the condition(s) in each of the feature flags we are creating later. You are allowed to use `string`, `number` or `boolean` types as a property
 
 ```ts
 import { createFeatureFlagClient } from "toggle-kit";
@@ -82,7 +82,7 @@ const client = createFeatureFlagClient({
 
 ### Create feature flag
 
-Last but not least, we want to create our first flag. Here we specify a name for the feature flag and select the type of condition we want to evaluate upon. Then we select the property we want to evaluate, and an expected value.
+Last but not least, we want to create our first flag. Here we specify a name for the feature flag and select the type of condition(s) we want to evaluate upon. Then we select the property we want to evaluate, and an expected value.
 
 ```ts
 import { createFeatureFlagClient } from "toggle-kit";
@@ -97,11 +97,13 @@ const client = createFeatureFlagClient({
   flags: [
     {
       name: "secret-page",
-      condition: {
-        type: "equal",
-        attribute: "email",
-        expectedValue: "test@example.com",
-      },
+      conditions: [
+        {
+          type: "equal",
+          attribute: "email",
+          expectedValue: "test@example.com",
+        },
+      ],
     },
   ],
 });
@@ -124,11 +126,13 @@ const client = createFeatureFlagClient({
   flags: [
     {
       name: "secret-page",
-      condition: {
-        type: "equal",
-        attribute: "email",
-        expectedValue: "test@example.com",
-      },
+      conditions: [
+        {
+          type: "equal",
+          attribute: "email",
+          expectedValue: "test@example.com",
+        },
+      ],
     },
   ],
 });

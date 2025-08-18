@@ -15,11 +15,13 @@ const client = createFeatureFlagClient({
   flags: [
     {
       name: "secret-page", // No autocompletion
-      condition: {
-        type: "equal",
-        attribute: "email", // No autocompletion
-        expectedValue: "test@example.com",
-      },
+      conditions: [
+        {
+          type: "equal",
+          attribute: "email", // No autocompletion
+          expectedValue: "test@example.com",
+        },
+      ],
     },
   ],
 });

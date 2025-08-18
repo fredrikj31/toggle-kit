@@ -25,37 +25,52 @@ export const isEnabled = <PropertyNames extends string, FlagNames>({
     return false;
   }
 
-  const { attribute, expectedValue, type: conditionType } = flag.condition;
+  let isEnabled: boolean = false;
+  for (const condition of flag.conditions) {
+    if (isEnabled) return true; // Return fast
 
-  if (!(attribute in property)) {
-    return false;
-  }
+    const { attribute, expectedValue, type: conditionType } = condition;
 
-  const value = property[attribute];
-
-  switch (conditionType) {
-    case "equal":
-      return equalCondition({ value, expectedValue });
-    case "contains":
-      return containsCondition({ value, expectedValue });
-    case "startsWith":
-      return startsWithCondition({ value, expectedValue });
-    case "endsWith":
-      return endsWithCondition({ value, expectedValue });
-    case "percentage":
-      return percentageCondition<FlagNames>({
-        featureName,
-        value,
-        expectedValue,
-      });
-    case "greaterThan":
-      return greaterThanCondition({ value, expectedValue });
-    case "lessThan":
-      return lessThanCondition({ value, expectedValue });
-    case "regex":
-      return regexCondition({ value, expectedValue });
-    default:
-      conditionType satisfies never;
+    if (!(attribute in property)) {
       return false;
+    }
+
+    const value = property[attribute];
+
+    switch (conditionType) {
+      case "equal":
+        isEnabled = equalCondition({ value, expectedValue });
+        continue;
+      case "contains":
+        isEnabled = containsCondition({ value, expectedValue });
+        continue;
+      case "startsWith":
+        isEnabled = startsWithCondition({ value, expectedValue });
+        continue;
+      case "endsWith":
+        isEnabled = endsWithCondition({ value, expectedValue });
+        continue;
+      case "percentage":
+        isEnabled = percentageCondition<FlagNames>({
+          featureName,
+          value,
+          expectedValue,
+        });
+        continue;
+      case "greaterThan":
+        isEnabled = greaterThanCondition({ value, expectedValue });
+        continue;
+      case "lessThan":
+        isEnabled = lessThanCondition({ value, expectedValue });
+        continue;
+      case "regex":
+        isEnabled = regexCondition({ value, expectedValue });
+        continue;
+      default:
+        conditionType satisfies never;
+        return false;
+    }
   }
+
+  return isEnabled;
 };

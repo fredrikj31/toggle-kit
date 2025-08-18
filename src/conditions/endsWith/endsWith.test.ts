@@ -28,11 +28,13 @@ describe("Condition - Ends With", () => {
       flags: [
         {
           name: "example-emails",
-          condition: {
-            type: "endsWith",
-            attribute: "email",
-            expectedValue: "example.com",
-          },
+          conditions: [
+            {
+              type: "endsWith",
+              attribute: "email",
+              expectedValue: "example.com",
+            },
+          ],
         },
       ],
     });

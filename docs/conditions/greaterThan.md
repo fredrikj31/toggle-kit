@@ -12,11 +12,13 @@ const client = createFeatureFlagClient({
   flags: [
     {
       name: "is-adult",
-      condition: {
-        type: "greaterThan",
-        attribute: "age",
-        expectedValue: 20,
-      },
+      conditions: [
+        {
+          type: "greaterThan",
+          attribute: "age",
+          expectedValue: 20,
+        },
+      ],
     },
   ],
 });
