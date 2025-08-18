@@ -12,11 +12,13 @@ const client = createFeatureFlagClient({
   flags: [
     {
       name: "is-lucky",
-      condition: {
-        type: "percentage",
-        attribute: "userId",
-        expectedValue: 50,
-      },
+      conditions: [
+        {
+          type: "percentage",
+          attribute: "userId",
+          expectedValue: 50,
+        },
+      ],
     },
   ],
 });

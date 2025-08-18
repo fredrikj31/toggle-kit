@@ -12,11 +12,13 @@ const client = createFeatureFlagClient({
   flags: [
     {
       name: "is-gmail",
-      condition: {
-        type: "regex",
-        attribute: "email",
-        expectedValue: /.+@gmail\.com/,
-      },
+      conditions: [
+        {
+          type: "regex",
+          attribute: "email",
+          expectedValue: /.+@gmail\.com/,
+        },
+      ],
     },
   ],
 });

@@ -13,19 +13,23 @@ const client = createFeatureFlagClient({
   flags: [
     {
       name: "is-admin",
-      condition: {
-        type: "contains",
-        attribute: "roles",
-        expectedValue: "admin",
-      },
+      conditions: [
+        {
+          type: "contains",
+          attribute: "roles",
+          expectedValue: "admin",
+        },
+      ],
     },
     {
       name: "is-gmail",
-      condition: {
-        type: "contains",
-        attribute: "email",
-        expectedValue: "@gmail.com",
-      },
+      conditions: [
+        {
+          type: "contains",
+          attribute: "email",
+          expectedValue: "@gmail.com",
+        },
+      ],
     },
   ],
 });

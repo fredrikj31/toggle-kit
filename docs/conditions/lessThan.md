@@ -12,11 +12,13 @@ const client = createFeatureFlagClient({
   flags: [
     {
       name: "is-child",
-      condition: {
-        type: "lessThan",
-        attribute: "age",
-        expectedValue: 21,
-      },
+      conditions: [
+        {
+          type: "lessThan",
+          attribute: "age",
+          expectedValue: 21,
+        },
+      ],
     },
   ],
 });
