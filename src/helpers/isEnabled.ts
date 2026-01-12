@@ -68,7 +68,8 @@ export const isEnabled = <PropertyNames extends string, FlagNames>({
         continue;
       default:
         conditionType satisfies never;
-        return false;
+        // We want to continue here, so if one of the conditions is unsupported it does not return fast (fail) the whole condition.
+        continue;
     }
   }
 
